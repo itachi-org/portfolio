@@ -6,7 +6,7 @@ import {
   createRoute,
   createRouter
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+// removed unused router devtools import
 
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'

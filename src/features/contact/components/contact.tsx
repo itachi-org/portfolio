@@ -23,16 +23,20 @@ export default function Contact () {
   const themeColors = useThemeAttributes()
 
   useNavDetection('CONTACT', '#contact')
-  const fluxRef = useRef()
-  const contactRef = useRef<HTMLElement>(null)
-  const sloganRef = useRef<HTMLDivElement>(null)
-  const mailRef = useRef<HTMLAnchorElement>(null)
-  const arrowRef = useRef<SVGSVGElement>(null)
-  const footerRef = useRef<HTMLElement>(null)
-  const homeElement = document.querySelector('#home')!
+  const fluxRef = useRef<HTMLDivElement | null>(null)
+  const contactRef = useRef<HTMLElement | null>(null)
+  const sloganRef = useRef<HTMLDivElement | null>(null)
+  const mailRef = useRef<HTMLAnchorElement | null>(null)
+  const arrowRef = useRef<SVGSVGElement | null>(null)
+  const footerRef = useRef<HTMLElement | null>(null)
+  const homeElement = document.querySelector('#home') as HTMLElement | null
   
   useGSAP(() => {
-    gsap.timeline({
+    if (!contactRef.current || !sloganRef.current || !mailRef.current || !arrowRef.current || !footerRef.current) {
+      return
+    }
+
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: contactRef.current,
         start: 'top 80%',
@@ -52,6 +56,10 @@ export default function Contact () {
       repeat: -1,
       ease: 'sine.inOut'
     })
+
+    return () => {
+      tl.kill()
+    }
   })
 
   return (

@@ -30,42 +30,48 @@ import type { ModesContent } from "@/data/colors";
 import { useSmoothScroll } from "../../shared/components/hooks/use-smooth-scroll";
 
 export default function Home(): JSX.Element {
-  useNavDetection("H", "#home");
-  const containerRef = useRef<HTMLElement>(null);
+  useNavDetection("K", "#home");
+  const containerRef = useRef<HTMLElement | null>(null);
   const { theme } = useStore();
   const colorsTheme = useThemeAttributes() as ModesContent;
   const { onSmoothScroll } = useSmoothScroll(gsap);
 
   useGSAP(() => {
-    const mainCentral = containerRef.current?.querySelector(".main-central");
-    const panelBottom = containerRef.current?.querySelector(".panel-bottom");
-    const scrollIndicator =
-      containerRef.current?.querySelector(".scroll-indicator");
+    if (!containerRef.current) return;
+
+    const mainCentral = containerRef.current.querySelector(".main-central");
+    const panelBottom = containerRef.current.querySelector(".panel-bottom");
+    const scrollIndicator = containerRef.current.querySelector(".scroll-indicator");
 
     const tl = gsap.timeline();
 
-    // Animation ralentie à 1.4s avec un ease très doux pour un effet "premium"
-    tl.fromTo(
-      mainCentral,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: "power4.out",
-        delay: 0.3,
-      },
-    ).fromTo(
-      panelBottom,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      },
-      "-=1", // Transition tuilée pour plus de fluidité
-    );
+    if (mainCentral) {
+      tl.fromTo(
+        mainCentral,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.4,
+          ease: "power4.out",
+          delay: 0.3,
+        },
+      )
+    }
+
+    if (panelBottom) {
+      tl.fromTo(
+        panelBottom,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+        "-=1", // Transition tuilée pour plus de fluidité
+      );
+    }
 
     if (scrollIndicator) {
       gsap.to(scrollIndicator, {

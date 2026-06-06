@@ -104,10 +104,14 @@ export default function Projects(): JSX.Element {
 
   useGSAP(
     () => {
-      const techStackPaths = projectsRef.current?.querySelectorAll('svg path') as NodeListOf<SVGPathElement>
-      const hoverContainer = projectsRef.current?.querySelector('svg')
-      const elementsToFade = projectsRef.current?.querySelectorAll('.projects-buttons, .filter-mode, .projects-content, .category-section')
+      const techStackPaths = projectsRef.current?.querySelectorAll('svg path') as NodeListOf<SVGPathElement> | undefined
+      const hoverContainer = projectsRef.current?.querySelector('svg') as SVGSVGElement | null
+      const elementsToFade = projectsRef.current?.querySelectorAll<HTMLElement>('.projects-buttons, .filter-mode, .projects-content, .category-section')
       let currentTween: gsap.core.Tween | null = null
+
+      if (!techStackPaths || !elementsToFade) {
+        return
+      }
 
       gsap.set(elementsToFade, { opacity: 0, y: 15 })
 

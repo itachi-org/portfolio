@@ -39,10 +39,6 @@ export default function Nav () {
       )
   })
 
-  const handleLinkClick = (linkName: LinksProps): void => {
-    DetectLinkNameByHref(linkName)
-  }
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }

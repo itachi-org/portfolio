@@ -5,45 +5,10 @@ import shopifyImage from '@/assets/img/project-shopify.png?url'
 import shoppingCartImage from '@/assets/img/project-shopping-1.jpg?url'
 const ecommerceImage = 'https://artdecorglass.co.uk/assets/hero-scene-DaxLSY1x.png'
 
-// Imports statiques des icônes SVG
-import FigmaIcon from '@/assets/icons/svg/figma.svg?react'
-import XDIcon from '@/assets/icons/svg/xd.svg?react'
-import JavaScriptIcon from '@/assets/icons/svg/javascript.svg?react'
-import ReactIcon from '@/assets/icons/svg/react.svg?react'
-import TypeScriptIcon from '@/assets/icons/svg/typescript.svg?react'
-import PandaCSSIcon from '@/assets/icons/svg/panda-css.svg?react'
-import TanstackIcon from '@/assets/icons/svg/tanstack.svg?react'
-import NodeJSIcon from '@/assets/icons/svg/nodejs.svg?react'
-import BunIcon from '@/assets/icons/svg/bun.svg?react'
-import ElysiaIcon from '@/assets/icons/svg/elysia.svg?react'
-import PostgreSQLIcon from '@/assets/icons/svg/postgre.svg?react'
-import KyselyIcon from '@/assets/icons/svg/kysely.svg?react'
-import SequelizeIcon from '@/assets/icons/svg/sequelize.svg?react'
-import IllustratorIcon from '@/assets/icons/svg/illustrator.svg?react'
-import GsapIcon from '@/assets/icons/svg/gsap.svg?react'
-import ExpressIcon from '@/assets/icons/svg/express.svg?react'
-import BlockchainIcon from '@/assets/icons/svg/blockchain.svg?react'
-import EthereumIcon from '@/assets/icons/svg/ethereum.svg?react'
-import SolidityIcon from '@/assets/icons/svg/solidity.svg?react'
-import SmartContractIcon from '@/assets/icons/svg/smart-contract.svg?react'
-import Web3Icon from '@/assets/icons/svg/web3.svg?react'
-import DAppIcon from '@/assets/icons/svg/dapp.svg?react'
-import NFTIcon from '@/assets/icons/svg/nft.svg?react'
-import DockerIcon from '@/assets/icons/svg/docker.svg?react'
-import FullStackIcon from '@/assets/icons/svg/full-stack.svg?react'
-import APIIcon from '@/assets/icons/svg/api.svg?react'
-import MongoDBIcon from '@/assets/icons/svg/mongodb.svg?react'
-import WebIcon from '@/assets/icons/svg/web.svg?react'
-import NextJSIcon from '@/assets/icons/svg/nextjs.svg?react'
-
 const GITHUB_BASE_URL = 'https://github.com/Oshima-921/'
-const SERVER_BASE_URL = 'https://mwamed.com/'
 
 const gitUrlConstructor = (projectName: string): string => {
   return `${GITHUB_BASE_URL}${projectName}`
-}
-const linkUrlConstructor = (projectName: string): string => {
-  return `${SERVER_BASE_URL}${projectName}`
 }
 
 export const technos = [

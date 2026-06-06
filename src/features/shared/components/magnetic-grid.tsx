@@ -1,5 +1,24 @@
+import type { ReactNode } from 'react'
 import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
+
+interface MagneticProjectProps {
+  imageUrl: string
+  height?: number
+  gridSize?: number
+  radius?: number
+  className?: string
+  children?: ReactNode
+  found?: boolean
+}
+
+interface GridElement {
+  x: number
+  y: number
+  left: number
+  top: number
+  scale: number
+}
 
 const MagneticProject = ({
   imageUrl,
@@ -8,18 +27,18 @@ const MagneticProject = ({
   radius = 60,
   className = '',
   children
-}) => {
-  const canvasRef = useRef()
-  const containerRef = useRef()
+}: MagneticProjectProps) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   // Refs pour stocker les données
-  const signsRef = useRef([])
+  const signsRef = useRef<GridElement[][]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
   const mouseOverRef = useRef(false)
   const mouseMovedRef = useRef(false)
-  const imageRef = useRef(null)
-  const animationIdRef = useRef(null)
+  const imageRef = useRef<HTMLImageElement | null>(null)
+  const animationIdRef = useRef<number | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -27,6 +46,7 @@ const MagneticProject = ({
     if (!canvas || !container) return
 
     const context = canvas.getContext('2d')
+    if (!context) return
 
     const updateCanvasSize = () => {
       const rect = container.getBoundingClientRect()
@@ -56,7 +76,7 @@ const MagneticProject = ({
     img.onload = () => {
       imageRef.current = img
 
-      const signs = []
+      const signs: GridElement[][] = []
 
       for (let i = 0; i < gridSize; i++) {
         signs[i] = []
@@ -158,14 +178,14 @@ const MagneticProject = ({
     }
 
     // Event listeners
-    const handleMouseMove = e => {
+    const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
       mouseRef.current.x = e.clientX - rect.left
       mouseRef.current.y = e.clientY - rect.top
       mouseMovedRef.current = true
     }
 
-    const handleMouseEnter = e => {
+    const handleMouseEnter = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
       // initialize mouse position on enter
       mouseRef.current.x = e.clientX - rect.left

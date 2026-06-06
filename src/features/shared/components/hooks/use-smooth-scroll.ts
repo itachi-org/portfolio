@@ -1,15 +1,16 @@
-import useStore from "@/core/store"
+import type { MouseEvent } from 'react'
+import useStore from '@/core/store'
 
 export const useSmoothScroll = (gsap: any) => {
-  const { isMobileMenuOpen, setIsMobileMenuOpen } = useStore()
+  const { setIsMobileMenuOpen } = useStore()
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
   }
 
   const onSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    target: string | HTMLElement // ✅ Accepter les deux types
+    e: MouseEvent<HTMLAnchorElement | HTMLButtonElement | SVGSVGElement>,
+    target: string | HTMLElement
   ): void => {
     e.preventDefault()
 
