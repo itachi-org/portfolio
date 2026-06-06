@@ -14,23 +14,14 @@ interface SkillsCategoriesProps {
   technos: StackType
 }
 
-const CONTAINER_STYLES = {
-  display: 'flex',
-  gap: '30px',
-  borderTop: 'right',
-  border: 'solid',
-
-  borderWidth: '1px 0px 1px 0px',
-  width: 'calc(75vw - 100px)',
-  padding: '30px 0px'
-} as const
+// (removed unused CONTAINER_STYLES)
 
 export default function SkillsCategories({ technos }: SkillsCategoriesProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const iconRefsRef = useRef<(HTMLDivElement | null)[]>([])
 
-  const handleMouseEnter = useCallback((techName: string, index: number) => {
+  const handleMouseEnter = useCallback((_techName: string, index: number) => {
     setHoveredIndex(index)
   }, [])
 

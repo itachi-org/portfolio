@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 
 interface MagneticProjectProps {
   imageUrl: string
-  height?: number
   gridSize?: number
   radius?: number
   className?: string
@@ -30,7 +29,6 @@ class GridElement {
 
 const MagneticProject = ({
   imageUrl,
-  height,
   gridSize = 9,
   radius = 60,
   className = '',

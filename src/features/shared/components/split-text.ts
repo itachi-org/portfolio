@@ -61,8 +61,8 @@ export const createDynamicSVGText = (
     const chars = text.split('')
     const paths: SVGPathElement[] = []
     let xOffset = 20
-    
-    chars.forEach((char, i) => {
+
+    chars.forEach((char) => {
       const charWidth = ctx.measureText(char).width
       
       // Générer un path simplifié pour chaque caractère
@@ -189,11 +189,11 @@ export const createDynamicSVGText = (
     // Ajuster position pour le deuxième mot
     const paths2 = await textToSVGPaths(word2)
     paths2.forEach(path => {
-      const currentD = path.getAttribute('d')
+      const currentD = path.getAttribute('d') ?? ''
       // Décaler le deuxième mot vers la droite
-      const shiftedD = currentD.replace(/M(\d+)/g, (match, x) => `M${parseInt(x) + spacing}`)
-                              .replace(/L(\d+)/g, (match, x) => `L${parseInt(x) + spacing}`)
-                              .replace(/Q(\d+)/g, (match, x) => `Q${parseInt(x) + spacing}`)
+      const shiftedD = currentD.replace(/M(\d+)/g, (_match, x) => `M${parseInt(x) + spacing}`)
+                              .replace(/L(\d+)/g, (_match, x) => `L${parseInt(x) + spacing}`)
+                              .replace(/Q(\d+)/g, (_match, x) => `Q${parseInt(x) + spacing}`)
       path.setAttribute('d', shiftedD)
     })
     

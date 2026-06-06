@@ -23,12 +23,12 @@ export default function Skills () {
   useGSAP(
     context => {
       const TOTAL_DURATION = 0.6
-      const myPaths = containerRef.current?.querySelectorAll('#my path')
-      const stackPaths = containerRef.current?.querySelectorAll('#stack path')
-      const hoverContainer = containerRef.current?.querySelector('svg')
-      let currentTween = null
+      const myPaths = Array.from(containerRef.current?.querySelectorAll('#my path') || []) as SVGPathElement[]
+      const stackPaths = Array.from(containerRef.current?.querySelectorAll('#stack path') || []) as SVGPathElement[]
+      const hoverContainer = containerRef.current?.querySelector('svg') as SVGSVGElement | null
+      let currentTween: gsap.core.Tween | null = null
 
-      const allPaths = [...(myPaths || []), ...(stackPaths || [])]
+      const allPaths = [...myPaths, ...stackPaths]
 
       // Assurer que la couleur de base est bien définie
       const baseColor = themeColors.base || '#000000'
