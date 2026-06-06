@@ -58,7 +58,7 @@ export function Clock({ colors }: { colors: string[] }) {
     setGmtOffset(formattedOffset)
   }, [])
 
-  const intervalRef = useRef<number | undefined>()
+  const intervalRef = useRef<number | null>(null)
 
   const updateTime = useCallback(() => {
     const now = new Date()
@@ -75,15 +75,15 @@ export function Clock({ colors }: { colors: string[] }) {
     const now = new Date()
     const msUntilNextSecond = 1000 - now.getMilliseconds()
 
-    const timeoutId = window.setTimeout(() => {
+    const timeoutId: number = window.setTimeout(() => {
       updateTime()
       intervalRef.current = window.setInterval(updateTime, 1000)
     }, msUntilNextSecond)
 
     return () => {
-      clearTimeout(timeoutId)
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+      window.clearTimeout(timeoutId)
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current)
       }
     }
   }, [updateTime])
