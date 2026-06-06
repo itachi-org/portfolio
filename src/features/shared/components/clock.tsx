@@ -28,7 +28,6 @@ const timezoneStyles = css({
 
 export function Clock({ colors }: { colors: string[] }) {
   if (!colors) return;
-  const [timezone, setTimezone] = useState<string>('UTC')
   const [gmtOffset, setGmtOffset] = useState<string>('GMT+0')
 
   const colorStyles = useMemo(
@@ -50,9 +49,6 @@ export function Clock({ colors }: { colors: string[] }) {
   })
 
   useEffect(() => {
-    const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-    setTimezone(detectedTimezone)
-    
     const now = new Date()
     const offsetMinutes = -now.getTimezoneOffset()
     const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60)
@@ -62,7 +58,7 @@ export function Clock({ colors }: { colors: string[] }) {
     setGmtOffset(formattedOffset)
   }, [])
 
-  const intervalRef = useRef<NodeJS.Timeout>()
+  const intervalRef = useRef<number | undefined>()
 
   const updateTime = useCallback(() => {
     const now = new Date()
@@ -79,9 +75,9 @@ export function Clock({ colors }: { colors: string[] }) {
     const now = new Date()
     const msUntilNextSecond = 1000 - now.getMilliseconds()
 
-    const timeoutId = setTimeout(() => {
+    const timeoutId = window.setTimeout(() => {
       updateTime()
-      intervalRef.current = setInterval(updateTime, 1000)
+      intervalRef.current = window.setInterval(updateTime, 1000)
     }, msUntilNextSecond)
 
     return () => {

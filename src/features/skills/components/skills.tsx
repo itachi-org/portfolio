@@ -16,8 +16,8 @@ import { useThemeAttributes } from '@/features/shared/components/hooks/use-theme
 
 export default function Skills () {
   useNavDetection('SKILLS', '#skills')
-  const containerRef = useRef()
-  const fluxRef = useRef()
+  const containerRef = useRef<HTMLElement | null>(null)
+  const fluxRef = useRef<HTMLDivElement | null>(null)
   const themeColors = useThemeAttributes()
 
   useGSAP(

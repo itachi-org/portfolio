@@ -1,10 +1,10 @@
-import type { ComponentType } from 'react'
+import type { ComponentType, SVGProps } from 'react'
 
 export interface StackType {
   title: string
   technos: {
     name: string
-    IconComponent: ComponentType
+    IconComponent: ComponentType<SVGProps<SVGSVGElement>>
   }[]
 }
 

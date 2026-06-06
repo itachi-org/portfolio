@@ -12,9 +12,7 @@ import {
 import ToggleTheme from '@/features/shared/theme/components/theme-toggle'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '@/core/gsap.config'
-import DetectLinkNameByHref, {
-  type LinksProps
-} from '@/features/shared/components/detect-link-name'
+// (removed unused import DetectLinkNameByHref)
 import useStore from '@/core/store'
 import { useSmoothScroll } from '../../components/hooks/use-smooth-scroll'
 

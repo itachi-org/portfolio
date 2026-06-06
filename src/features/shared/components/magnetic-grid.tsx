@@ -12,12 +12,20 @@ interface MagneticProjectProps {
   found?: boolean
 }
 
-interface GridElement {
+class GridElement {
   x: number
   y: number
   left: number
   top: number
   scale: number
+
+  constructor () {
+    this.x = 0
+    this.y = 0
+    this.left = 0
+    this.top = 0
+    this.scale = 1.0
+  }
 }
 
 const MagneticProject = ({
@@ -57,15 +65,7 @@ const MagneticProject = ({
     updateCanvasSize()
   
 
-    class GridElement {
-      constructor () {
-        this.x = 0
-        this.y = 0
-        this.left = 0
-        this.top = 0
-        this.scale = 1.0 // Commence à scale 1 pour couvrir parfaitement
-      }
-    }
+    // GridElement class is defined at module scope
 
     // Charger l'image
     const img = new Image()

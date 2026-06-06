@@ -118,19 +118,17 @@ export const BurgerLineCSS = css({
   transformOrigin: 'center',
 
   // État ouvert - première ligne
-  '.mobile-open &:nth-child(1)': {
-    transform: 'rotate(45deg) translateY(6px)'
-  },
-
-  // État ouvert - deuxième ligne (disparaît)
-  '.mobile-open &:nth-child(2)': {
-    opacity: 0,
-    transform: 'scaleX(0)'
-  },
-
-  // État ouvert - troisième ligne
-  '.mobile-open &:nth-child(3)': {
-    transform: 'rotate(-45deg) translateY(-6px)'
+  '.mobile-open &': {
+    '&:nth-child(1)': {
+      transform: 'rotate(45deg) translateY(6px)'
+    },
+    '&:nth-child(2)': {
+      opacity: 0,
+      transform: 'scaleX(0)'
+    },
+    '&:nth-child(3)': {
+      transform: 'rotate(-45deg) translateY(-6px)'
+    }
   }
 })
 

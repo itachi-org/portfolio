@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, type ReactElement } from "react";
 
 import HadesDarkIcon from "@/assets/icons/svg/hades-dark.svg?react";
 import HadesLightIcon from "@/assets/icons/svg/hades-light.svg?react";
@@ -29,7 +29,7 @@ import { useThemeAttributes } from "@/features/shared/components/hooks/use-theme
 import type { ModesContent } from "@/data/colors";
 import { useSmoothScroll } from "../../shared/components/hooks/use-smooth-scroll";
 
-export default function Home(): JSX.Element {
+export default function Home(): ReactElement {
   useNavDetection("K", "#home");
   const containerRef = useRef<HTMLElement | null>(null);
   const { theme } = useStore();

@@ -26,7 +26,7 @@ import useStore from '@/core/store'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '@/core/gsap.config'
 import { useNavDetection } from '../shared/nav/hooks/use-nav-detection'
-import { useRef } from 'react'
+import { useRef, type ReactElement } from 'react'
 import { useThemeAttributes } from '../shared/components/hooks/use-theme'
 
 const ThumbnailItemCSS = css({
@@ -84,7 +84,7 @@ const SuggestionTextCSS = css({
   fontStyle: 'italic'
 })
 
-export default function Projects(): JSX.Element {
+export default function Projects(): ReactElement {
   useNavDetection('PROJECTS', '#projects')
   const projectsRef = useRef<HTMLElement | null>(null)
   const themeColors = useThemeAttributes()

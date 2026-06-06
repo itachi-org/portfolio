@@ -109,7 +109,7 @@ export default function SkillsCategories({ technos }: SkillsCategoriesProps) {
         {technos.technos.map((techno, index) => (
           <div
             key={`${techno.name}-${index}`}
-            ref={el => iconRefsRef.current[index] = el}
+            ref={el => { iconRefsRef.current[index] = el }}
             className={`${DesignIconCSS} ${hoveredIndex === index ? TechnoSelectedCSS : ''}`}
             onMouseEnter={() => handleMouseEnter(techno.name, index)}
             onMouseLeave={handleMouseLeave}

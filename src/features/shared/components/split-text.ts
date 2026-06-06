@@ -4,7 +4,17 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 gsap.registerPlugin(DrawSVGPlugin)
 
 // GÉNÉRATEUR DE SVG PATHS À PARTIR DE TEXTE
-export const createDynamicSVGText = (container, options = {}) => {
+export const createDynamicSVGText = (
+  container: HTMLElement,
+  options: {
+    fontSize?: number
+    fontFamily?: string
+    strokeColor?: string
+    fillColor?: string
+    viewBoxWidth?: number
+    viewBoxHeight?: number
+  } = {}
+) => {
   const {
     fontSize = 60,
     fontFamily = 'Athena, Arial Black, sans-serif',
@@ -36,20 +46,20 @@ export const createDynamicSVGText = (container, options = {}) => {
   
   container.appendChild(svg)
   
-  let currentPaths = []
-  let currentTween = null
+  let currentPaths: SVGPathElement[] = []
+  let currentTween: gsap.core.Tween | null = null
   
   // Fonction pour convertir texte en paths SVG
-  const textToSVGPaths = async (text) => {
+  const textToSVGPaths = async (text: string): Promise<SVGPathElement[]> => {
     // Créer un canvas temporaire pour mesurer le texte
     const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     ctx.font = `${fontSize}px ${fontFamily}`
     
     // Simuler des paths pour chaque caractère (version simplifiée)
     // En production, utilisez opentype.js ou une API de conversion
     const chars = text.split('')
-    const paths = []
+    const paths: SVGPathElement[] = []
     let xOffset = 20
     
     chars.forEach((char, i) => {
@@ -87,7 +97,7 @@ export const createDynamicSVGText = (container, options = {}) => {
       }
       
       if (char !== ' ') {
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement
         path.setAttribute('d', pathData)
         path.setAttribute('stroke', strokeColor)
         path.setAttribute('stroke-width', '2')
@@ -105,7 +115,14 @@ export const createDynamicSVGText = (container, options = {}) => {
   }
   
   // Animation identique à votre SVG
-  const animateText = async (text, animationOptions = {}) => {
+  const animateText = async (text: string, animationOptions: {
+    traceDuration?: number
+    fillDuration?: number
+    traceStagger?: number
+    fillStagger?: number
+    traceDelay?: number
+    fillDelay?: number
+  } = {}) => {
     const {
       traceDuration = 0.8,
       fillDuration = 0.3,
@@ -151,7 +168,11 @@ export const createDynamicSVGText = (container, options = {}) => {
   }
   
   // Animation de deux mots (comme MY + STACK)
-  const animateTwoWords = async (word1, word2, options = {}) => {
+  const animateTwoWords = async (word1: string, word2: string, options: {
+    word1Delay?: number
+    word2Delay?: number
+    spacing?: number
+  } = {}) => {
     const {
       word1Delay = 0,
       word2Delay = 0.2,
@@ -222,7 +243,7 @@ export const createDynamicSVGText = (container, options = {}) => {
   }
   
   // Hover effect identique
-  const addHoverEffect = () => {
+  const addHoverEffect = (): void => {
     svg.addEventListener('mouseenter', () => {
       if (currentTween) currentTween.kill()
       
@@ -251,7 +272,7 @@ export const createDynamicSVGText = (container, options = {}) => {
     })
   }
   
-  const destroy = () => {
+  const destroy = (): void => {
     svg.remove()
   }
   

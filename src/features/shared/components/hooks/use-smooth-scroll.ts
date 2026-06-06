@@ -10,11 +10,13 @@ export const useSmoothScroll = (gsap: any) => {
 
   const onSmoothScroll = (
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement | SVGSVGElement>,
-    target: string | HTMLElement
+    target: string | HTMLElement | null
   ): void => {
     e.preventDefault()
 
     // Gérer les deux types de target
+    if (!target) return
+
     const targetElement = typeof target === 'string' 
       ? document.querySelector(target)
       : target
