@@ -69,7 +69,7 @@ export default function Nav () {
               viewBox='0 0 10.08 13.16'
             >
               <path
-                id='K'
+                id='H'
                 d='M9.159,0,2.26,9.82V0H0V13.16H.4L3.76,8.38l3.5,4.78H10.08L5.12,6.42,9.64,0Z'
                 transform='translate(0 0)'
               />

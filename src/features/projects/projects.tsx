@@ -16,7 +16,7 @@ import {
   ProjectsCSS,
   ProjectOriginCSS,
   ProjectNameCSS,
-  ImgProjectOriginCSS,
+  ProjectDescriptionCSS,
   BtnProjectNotFoundCSS,
   ThumbnailContainerCSS
 } from '@/features/projects/projects.style'
@@ -245,7 +245,10 @@ export default function Projects(): JSX.Element {
             <div key={i} className={ContainerProjectCSS}>
               <MagneticProject found={true} imageUrl={project.url.icon} gridSize={8} className={ImgProjectCSS} />
               <div className={ProjectLegendCSS}>
-                <div className={ProjectNameCSS}>{project.name}</div>
+                <div>
+                  <div className={ProjectNameCSS}>{project.name}</div>
+                  <div className={ProjectDescriptionCSS}>{project.summary}</div>
+                </div>
                 <div className={ProjectOriginCSS}>
                   {project.url.server && <a target='_blank' href={project.url.server}>Live View</a>}
                   <a target='_blank' href={project.url.github}>Github</a>

@@ -1,8 +1,9 @@
 // Imports des images de projets
-import borealeIcon from '@/assets/img/winter-7593872.webp'
-import defAPIIcon from '@/assets/img/def-api.webp'
-import pokeAPIIcon from '@/assets/img/pokemon-api.webp'
-import emmaBOTIcon from '@/assets/img/emma-bot.webp'
+import solidityImage from '@/assets/img/project-solidity.png?url'
+import defiImage from '@/assets/img/decentralized-funding.svg?url'
+import shopifyImage from '@/assets/img/project-shopify.png?url'
+import shoppingCartImage from '@/assets/img/project-shopping-1.jpg?url'
+const ecommerceImage = 'https://artdecorglass.co.uk/assets/hero-scene-DaxLSY1x.png'
 
 // Imports statiques des icônes SVG
 import FigmaIcon from '@/assets/icons/svg/figma.svg?react'
@@ -21,8 +22,21 @@ import SequelizeIcon from '@/assets/icons/svg/sequelize.svg?react'
 import IllustratorIcon from '@/assets/icons/svg/illustrator.svg?react'
 import GsapIcon from '@/assets/icons/svg/gsap.svg?react'
 import ExpressIcon from '@/assets/icons/svg/express.svg?react'
+import BlockchainIcon from '@/assets/icons/svg/blockchain.svg?react'
+import EthereumIcon from '@/assets/icons/svg/ethereum.svg?react'
+import SolidityIcon from '@/assets/icons/svg/solidity.svg?react'
+import SmartContractIcon from '@/assets/icons/svg/smart-contract.svg?react'
+import Web3Icon from '@/assets/icons/svg/web3.svg?react'
+import DAppIcon from '@/assets/icons/svg/dapp.svg?react'
+import NFTIcon from '@/assets/icons/svg/nft.svg?react'
+import DockerIcon from '@/assets/icons/svg/docker.svg?react'
+import FullStackIcon from '@/assets/icons/svg/full-stack.svg?react'
+import APIIcon from '@/assets/icons/svg/api.svg?react'
+import MongoDBIcon from '@/assets/icons/svg/mongodb.svg?react'
+import WebIcon from '@/assets/icons/svg/web.svg?react'
+import NextJSIcon from '@/assets/icons/svg/nextjs.svg?react'
 
-const GITHUB_BASE_URL = 'https://github.com/yuri-jahad/'
+const GITHUB_BASE_URL = 'https://github.com/Oshima-921/'
 const SERVER_BASE_URL = 'https://mwamed.com/'
 
 const gitUrlConstructor = (projectName: string): string => {
@@ -33,66 +47,74 @@ const linkUrlConstructor = (projectName: string): string => {
 }
 
 export const technos = [
+  'Blockchain',
+  'Ethereum',
+  'Solidity',
+  'Smart Contracts',
+  'Web3.js',
+  'DApp Development',
+  'NFT Development',
+  'Docker',
   'JavaScript',
   'TypeScript',
-  'Bun',
-  'Elysia',
-  'Kysely',
-  'Sequelize',
-  'Figma',
+  'React.js',
+  'Next.js',
+  'Web Development',
+  'Node.js',
+  'MongoDB',
   'PostgreSQL',
-  'PandaCSS',
-  'React',
-  'Tanstack',
-  'Fastify',
-  'Adobe XD',
-  'Node.JS',
-  'DiscordJS'
+  'API Integration',
+  'Full Stack Development'
 ] as const
 
 export const projects = [
   {
-    name: 'Syllabe Boréale',
-    technos: [
-      'Bun',
-      'Elysia',
-      'Kysely',
-      'React',
-      'Tanstack',
-      'PandaCSS',
-      'TypeScript',
-      'Adobe XD'
-    ],
+    name: 'Solidity Contract Storage',
+    summary: 'A secure Ethereum smart contract built with Solidity and Web3.js for storing and retrieving data on-chain, showcasing blockchain architecture and contract interaction.',
+    technos: ['Solidity', 'Smart Contracts', 'Blockchain', 'Ethereum', 'Web3.js'],
     url: {
-      icon: borealeIcon,
-      github: gitUrlConstructor('Syllabe-Boreale'),
-      server: linkUrlConstructor('syllabe-boreale/')
-    }
-  },
-  {
-    name: 'Définition API',
-    technos: ['Bun', 'Elysia', 'Kysely', 'PostgreSQL', 'TypeScript'],
-    url: {
-      icon: defAPIIcon,
-      github: gitUrlConstructor('def-api-frontend'),
-      server: linkUrlConstructor('def')
-    }
-  },
-  {
-    name: 'Api rest Pokémon',
-    technos: ['Node.JS', 'Fastify', 'Sequelize', 'TypeScript'],
-    url: {
-      icon: pokeAPIIcon,
-      github: gitUrlConstructor('api-pokemons'),
+      icon: solidityImage,
+      github: gitUrlConstructor('Solidity-Contract-Storage'),
       server: null
     }
   },
   {
-    name: 'Emma Bot (discord)',
-    technos: ['Node.JS', 'Fastify', 'DiscordJS', 'TypeScript'],
+    name: 'Decentralized Funding',
+    summary: 'A decentralized crowdfunding dApp using Ethereum smart contracts, enabling campaign creation, contributions, and transparent funding flows through Web3 integration.',
+    technos: ['Solidity', 'Smart Contracts', 'Blockchain', 'Ethereum', 'Web3.js', 'React.js', 'API Integration'],
     url: {
-      icon: emmaBOTIcon,
-      github: gitUrlConstructor('Emma'),
+      icon: defiImage,
+      github: gitUrlConstructor('Decentralized-Funding'),
+      server: null
+    }
+  },
+  {
+    name: 'Shopify Preservation',
+    summary: 'A full-stack Shopify-oriented project combining React UI with Node.js backend APIs to preserve storefront data, improve product workflows, and support custom shop integrations.',
+    technos: ['React.js', 'JavaScript', 'Node.js', 'API Integration', 'Full Stack Development'],
+    url: {
+      icon: shopifyImage,
+      github: gitUrlConstructor('shopify-preservation'),
+      server: null
+    }
+  },
+  {
+    name: 'Python Shopping Cart',
+    summary: 'A Python-powered shopping cart system built with backend logic and API integration to manage products, cart state, and streamlined checkout flows.',
+    technos: ['API Integration', 'Full Stack Development'],
+    url: {
+      icon: shoppingCartImage,
+      github: gitUrlConstructor('python-shopping-cart'),
+      server: null
+    }
+  },
+  {
+    name: 'Ecommerce Site',
+    summary: 'A modern full-stack e-commerce experience using React, Node.js, and MongoDB, with API-driven product management, cart handling, and responsive store interfaces.',
+    technos: ['React.js', 'JavaScript', 'Node.js', 'MongoDB', 'API Integration', 'Full Stack Development'],
+    url: {
+      icon: ecommerceImage,
+      github: gitUrlConstructor('ecommerce-site'),
       server: null
     }
   }
@@ -100,19 +122,39 @@ export const projects = [
 
 export const stack = [
   {
-    title: 'Design',
+    title: 'Blockchain',
     technos: [
       {
-        name: 'Figma',
-        IconComponent: FigmaIcon
+        name: 'Blockchain',
+        IconComponent: BlockchainIcon
       },
       {
-        name: 'Adobe XD',
-        IconComponent: XDIcon
+        name: 'Ethereum',
+        IconComponent: EthereumIcon
       },
       {
-        name: 'Illustrator',
-        IconComponent: IllustratorIcon
+        name: 'Solidity',
+        IconComponent: SolidityIcon
+      },
+      {
+        name: 'Smart Contracts',
+        IconComponent: SmartContractIcon
+      },
+      {
+        name: 'Web3.js',
+        IconComponent: Web3Icon
+      },
+      {
+        name: 'DApp Development',
+        IconComponent: DAppIcon
+      },
+      {
+        name: 'NFT Development',
+        IconComponent: NFTIcon
+      },
+      {
+        name: 'Docker',
+        IconComponent: DockerIcon
       }
     ]
   },
@@ -124,24 +166,20 @@ export const stack = [
         IconComponent: JavaScriptIcon
       },
       {
-        name: 'React',
-        IconComponent: ReactIcon
-      },
-      {
         name: 'TypeScript',
         IconComponent: TypeScriptIcon
       },
       {
-        name: 'Panda CSS',
-        IconComponent: PandaCSSIcon
+        name: 'React.js',
+        IconComponent: ReactIcon
       },
       {
-        name: 'Tanstack',
-        IconComponent: TanstackIcon
+        name: 'Next.js',
+        IconComponent: NextJSIcon
       },
       {
-        name: 'Gsap',
-        IconComponent: GsapIcon
+        name: 'Web Development',
+        IconComponent: WebIcon
       }
     ]
   },
@@ -149,36 +187,24 @@ export const stack = [
     title: 'Backend',
     technos: [
       {
-        name: 'NodeJS',
+        name: 'Node.js',
         IconComponent: NodeJSIcon
       },
       {
-        name: 'Bun',
-        IconComponent: BunIcon
-      },
-      {
-        name: 'TypeScript',
-        IconComponent: TypeScriptIcon
-      },
-      {
-        name: 'Express',
-        IconComponent: ExpressIcon
-      },
-      {
-        name: 'Elysia',
-        IconComponent: ElysiaIcon
+        name: 'MongoDB',
+        IconComponent: MongoDBIcon
       },
       {
         name: 'PostgreSQL',
         IconComponent: PostgreSQLIcon
       },
       {
-        name: 'Kysely',
-        IconComponent: KyselyIcon
+        name: 'API Integration',
+        IconComponent: APIIcon
       },
       {
-        name: 'Sequelize',
-        IconComponent: SequelizeIcon
+        name: 'Full Stack Development',
+        IconComponent: FullStackIcon
       }
     ]
   }

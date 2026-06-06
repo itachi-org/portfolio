@@ -49,7 +49,9 @@ const MagneticProject = ({
 
     // Charger l'image
     const img = new Image()
-    img.crossOrigin = 'anonymous'
+    if (!/^https?:\/\//.test(imageUrl)) {
+      img.crossOrigin = 'anonymous'
+    }
 
     img.onload = () => {
       imageRef.current = img
@@ -144,10 +146,12 @@ const MagneticProject = ({
             currentRadius = dist
           }
 
+          // stronger magnet effect for clearer feedback
           gsap.to(sign, {
-            duration: 0.3,
-            x: Math.cos(angle) * currentRadius * 0.3,
-            y: Math.sin(angle) * currentRadius * 0.3
+            duration: 0.25,
+            x: Math.cos(angle) * currentRadius * 0.5,
+            y: Math.sin(angle) * currentRadius * 0.5,
+            ease: 'power2.out'
           })
         }
       }
@@ -161,18 +165,23 @@ const MagneticProject = ({
       mouseMovedRef.current = true
     }
 
-    const handleMouseEnter = () => {
+    const handleMouseEnter = e => {
+      const rect = canvas.getBoundingClientRect()
+      // initialize mouse position on enter
+      mouseRef.current.x = e.clientX - rect.left
+      mouseRef.current.y = e.clientY - rect.top
       mouseOverRef.current = true
+      mouseMovedRef.current = true
     }
 
     const handleMouseLeave = () => {
       mouseOverRef.current = false
 
-      // Reset tous les éléments
+      // Reset all elements back to neutral position
       for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
           const sign = signsRef.current[i][j]
-          gsap.to(sign, { duration: 0.3, x: 0, y: 0, scale: 0.5 })
+          gsap.to(sign, { duration: 0.35, x: 0, y: 0, ease: 'power2.out' })
         }
       }
     }
@@ -195,9 +204,13 @@ const MagneticProject = ({
       }
     }
 
+    // Attach events to both canvas and container for more reliable tracking
     canvas.addEventListener('mousemove', handleMouseMove)
     canvas.addEventListener('mouseenter', handleMouseEnter)
     canvas.addEventListener('mouseleave', handleMouseLeave)
+    container.addEventListener('mousemove', handleMouseMove)
+    container.addEventListener('mouseenter', handleMouseEnter)
+    container.addEventListener('mouseleave', handleMouseLeave)
     window.addEventListener('resize', handleResize)
 
     // Cleanup
@@ -205,6 +218,9 @@ const MagneticProject = ({
       canvas.removeEventListener('mousemove', handleMouseMove)
       canvas.removeEventListener('mouseenter', handleMouseEnter)
       canvas.removeEventListener('mouseleave', handleMouseLeave)
+      container.removeEventListener('mousemove', handleMouseMove)
+      container.removeEventListener('mouseenter', handleMouseEnter)
+      container.removeEventListener('mouseleave', handleMouseLeave)
       window.removeEventListener('resize', handleResize)
 
       if (animationIdRef.current) {

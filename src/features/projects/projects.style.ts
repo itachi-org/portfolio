@@ -31,19 +31,19 @@ export const ContainerProjectCSS = css({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  gap: '20px',
+  gap: '16px',
 
   '& .magnetic-project-container': {
-    height: '500px !important',
+    height: '420px !important',
 
     '@media(max-width:1024px)': {
-      height: '400px !important'
+      height: '340px !important'
     },
     '@media(max-width:768px)': {
-      height: '300px !important'
+      height: '260px !important'
     },
     '@media(max-width:480px)': {
-      height: '250px !important'
+      height: '220px !important'
     }
   }
 })
@@ -68,17 +68,17 @@ export const ContainerProjectBtnsCSS = css({
 
 export const ImgProjectCSS = css({
   objectFit: 'cover',
-  height: '500px !important',
+  height: '420px !important',
   width: '100%',
 
   '@media(max-width:1250px)': {
-    height: '350px !important'
+    height: '320px !important'
   },
   '@media(max-width:1050px)': {
-    height: '200px !important'
+    height: '220px !important'
   },
   '@media(max-width:765px)': {
-    height: '400px !important',
+    height: '260px !important',
     objectFit: 'content'
   }
 })
@@ -108,6 +108,18 @@ export const ProjectOriginCSS = css({
     left: 0,
     bottom: 0,
     background: 'bg.gardianBackground'
+  }
+})
+
+export const ProjectDescriptionCSS = css({
+  fontSize: '15px',
+  lineHeight: '1.6',
+  opacity: 0.75,
+  maxWidth: '100%',
+  color: 'bg.gardienSingleColor',
+  marginTop: '4px',
+  '@media(max-width:768px)': {
+    fontSize: '14px'
   }
 })
 

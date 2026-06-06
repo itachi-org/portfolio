@@ -167,4 +167,74 @@ html {
   }
 }
 
+body {
+  cursor: none;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  cursor: auto;
+}
+
+.custom-cursor-dot,
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.2s ease, transform 0.18s ease-out, border-color 0.25s ease;
+  will-change: transform, opacity, width, height;
+}
+
+.custom-cursor-dot {
+  border-radius: 50%;
+  background: rgba(19, 213, 255, 0.95);
+}
+
+.custom-cursor-dot--head {
+  box-shadow: 0 0 20px rgba(19, 213, 255, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
+.custom-cursor-dot--tail {
+  background: rgba(19, 213, 255, 0.55);
+  box-shadow: 0 0 10px rgba(19, 213, 255, 0.16);
+}
+
+.custom-cursor-ring {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  backdrop-filter: blur(3px);
+  opacity: 0.9;
+  animation: cursorPulse 1.6s ease-in-out infinite alternate;
+}
+
+.custom-cursor--hidden {
+  opacity: 0;
+}
+
+.custom-cursor-dot.custom-cursor--hover,
+.custom-cursor-ring.custom-cursor--hover {
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+.custom-cursor-ring.custom-cursor--hover {
+  border-color: rgba(19, 213, 255, 0.9);
+}
+
+@keyframes cursorPulse {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 @layer reset, base, tokens, recipes, utilities;
