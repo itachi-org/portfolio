@@ -2,7 +2,6 @@
 import solidityImage from '@/assets/img/project-solidity.png?url'
 import fundingImage from '@/assets/img/Screenshot 2026-06-07 040339.png?url'
 import shopifyImage from '@/assets/img/project-shopify.png?url'
-import shoppingCartImage from '@/assets/img/project-shopping-1.jpg?url'
 import airtableImage from '@/assets/img/airtable-app.svg?url'
 import BlockchainIcon from '@/assets/icons/svg/blockchain.svg?react'
 import EthereumIcon from '@/assets/icons/svg/ethereum.svg?react'

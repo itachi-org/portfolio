@@ -58,6 +58,7 @@ export const PCSS = css({
   lineHeight: '1.6',
   letterSpacing: '0.2px',
   margin: '0',
+  textAlign: 'justify',
   textRendering: 'optimizeLegibility',
   '@media(max-width: 1050px)': {
     maxWidth: '100%'
