@@ -1,5 +1,5 @@
 // DetectLinkName.ts - Simple ajout/suppression de classe 'active'
-export type LinksProps = 'PROJECTS' | 'SKILLS' | 'CONTACT' | 'K'
+export type LinksProps = 'PROJECTS' | 'SKILLS' | 'CONTACT' | 'K' | 'ABOUT'
 
 export default function DetectLinkNameByHref (linkName: LinksProps): void {
   const links: NodeListOf<HTMLAnchorElement> =
@@ -7,6 +7,7 @@ export default function DetectLinkNameByHref (linkName: LinksProps): void {
 
   const linkMapping: Record<LinksProps, string> = {
     K: '#home',
+    ABOUT: '#about',
     PROJECTS: '#projects',
     SKILLS: '#skills',
     CONTACT: '#contact'

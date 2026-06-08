@@ -4,7 +4,6 @@ import {
   TechnoContentCSS,
   DesignIconCSS,
   TechnoSelectedCSS,
-  TechnoNameCSS,
   TechnoBadgeCSS,
   LineHorizontalCSS
 } from '@/features/skills/components/skills-categories.style'

@@ -13,6 +13,8 @@ import {
   AboutCardReverseCSS,
   AboutContainerCSS,
   AboutDescriptionCSS,
+  AboutHeadingCSS,
+  AboutLetterCSS,
   AboutHeroCSS,
   AboutHeroDescriptionCSS,
   AboutHeroKeyItemCSS,
@@ -165,20 +167,24 @@ export default function About(): ReactElement {
   return (
     <section id="about" ref={aboutRef} className={`${SpacingCSS.sectionSeparator} ${SectionCSS}`}>
       <div className={ZoneCategoryCSS}>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 0 503.045 33.5">
-            <defs>
-              <linearGradient id="aboutGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor={themeColors.colors?.[0] || '#13D5FF'} />
-                <stop offset="100%" stopColor={themeColors.colors?.[2] || '#F53C28'} />
-              </linearGradient>
-            </defs>
-            <g>
-              <path d="M29.3,27.6a16.438,16.438,0,0,1-12.649,5.9,16.132,16.132,0,0,1-8.326-2.25,16.79,16.79,0,0,1-6.075-6.1A16.353,16.353,0,0,1,0,16.75a16.351,16.351,0,0,1,2.25-8.4,16.8,16.8,0,0,1,6.075-6.1A16.132,16.132,0,0,1,16.651,0a16.283,16.283,0,0,1,6.625,1.375A16.657,16.657,0,0,1,28.75,5.25L28.1,6a15.23,15.23,0,0,0-11.45-5,9.189,9.189,0,0,0-5.6,1.851A12.209,12.209,0,0,0,7.226,7.776Q5.9,10.8,5.9,16.75t1.325,8.976a12.209,12.209,0,0,0,3.824,4.925,9.187,9.187,0,0,0,5.6,1.849,15.3,15.3,0,0,0,12-5.649Z" />
-              <path d="M55.5.3h5.649V33.2H55.5V17.3H41.55V33.2H35.9V.3H41.55v16H55.5Z" />
-              <path d="M101.448,16.75A16.266,16.266,0,0,1,99.2,25.1a16.99,16.99,0,0,1-6.074,6.125,16.451,16.451,0,0,1-16.65.024,16.777,16.777,0,0,1-6.075-6.1,16.35,16.35,0,0,1-2.25-8.4,16.351,16.351,0,0,1,2.25-8.4,16.787,16.787,0,0,1,6.075-6.1,16.447,16.447,0,0,1,16.65.025A16.99,16.99,0,0,1,99.2,8.4a16.265,16.265,0,0,1,2.25,8.35m-5.9,0q0-5.949-1.351-8.975a12.606,12.606,0,0,0-3.8-4.924,9.071,9.071,0,0,0-5.6-1.8,8.938,8.938,0,0,0-5.6,1.8,12.205,12.205,0,0,0-3.824,4.924Q74.048,10.8,74.049,16.75t1.325,8.976A12.205,12.205,0,0,0,79.2,30.65a8.911,8.911,0,0,0,5.6,1.85,9.044,9.044,0,0,0,5.6-1.85,12.606,12.606,0,0,0,3.8-4.924q1.352-3.026,1.351-8.976" />
-            </g>
-          </svg>
+        <div className={AboutHeadingCSS}>
+          {['A', 'B', 'O', 'U', 'T', ' ', 'M', 'E'].map((letter, index) => {
+            const colorIndex = index % 2 === 0 ? 0 : 2;
+            const color = themeColors.colors?.[colorIndex] || (index % 2 === 0 ? '#13D5FF' : '#F53C28');
+            return (
+              <span
+                key={index}
+                className={AboutLetterCSS}
+                style={{
+                  color: color,
+                  animationDelay: `${index * 0.1}s`,
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {letter}
+              </span>
+            );
+          })}
         </div>
         <span className="category-section">04. ABOUT ME</span>
       </div>
@@ -186,7 +192,7 @@ export default function About(): ReactElement {
       <div className={AboutSectionCSS}>
         <div className={AboutHeroCSS}>
           <div className={`${AboutHeroLeftCSS} about-hero-column`}>
-            <div className={AboutHeroTitleCSS}>A more detailed look at my story, values, and craft.</div>
+            <div className={AboutHeroTitleCSS}>Professional Background & Technical Expertise</div>
             <div className={AboutHeroDescriptionCSS}>
               These eight cards highlight the personal and professional experiences that shape my thinking as a full-stack engineer. From the confidence of client-facing delivery to the clarity earned in nature, each image represents a distinct facet of how I build products and collaborate with teams.
             </div>

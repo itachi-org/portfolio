@@ -211,3 +211,25 @@ export const AboutDescriptionCSS = css({
     fontSize: '{fontSizes.base}'
   }
 })
+
+export const AboutHeadingCSS = css({
+  fontSize: '72px',
+  fontFamily: 'athena',
+  letterSpacing: '-0.045em',
+  lineHeight: '1.15',
+  fontWeight: 600,
+  display: 'flex',
+  gap: '8px',
+  '@media(max-width: 980px)': {
+    fontSize: '52px'
+  },
+  '@media(max-width: 640px)': {
+    fontSize: '42px'
+  }
+})
+
+export const AboutLetterCSS = css({
+  display: 'inline-block',
+  animation: 'starWaterfall 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+  transformOrigin: 'center'
+})

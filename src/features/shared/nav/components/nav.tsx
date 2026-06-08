@@ -17,6 +17,7 @@ import { useSmoothScroll } from '../../components/hooks/use-smooth-scroll'
 const menuItems = [
   { href: '#skills', label: 'SKILLS' },
   { href: '#projects', label: 'PROJECTS' },
+  { href: '#about', label: 'ABOUT' },
   { href: '#contact', label: 'CONTACT' },
   // { href: '#resume', label: 'RÉSUMÉ' }
 ]
