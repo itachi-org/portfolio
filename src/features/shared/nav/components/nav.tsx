@@ -6,10 +6,8 @@ import {
   BurgerButtonCSS,
   BurgerLineCSS,
   MobileNavCSS,
-  OverlayCSS,
-  ThemeToggleWrapperCSS
+  OverlayCSS
 } from '@/features/shared/nav/components/nav.style'
-import ToggleTheme from '@/features/shared/theme/components/theme-toggle'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '@/core/gsap.config'
 // (removed unused import DetectLinkNameByHref)
@@ -84,11 +82,6 @@ export default function Nav () {
               </li>
             ))}
           </ul>
-
-          {/* Theme Toggle */}
-          <div className={ThemeToggleWrapperCSS}>
-            <ToggleTheme />
-          </div>
 
           {/* Bouton Burger */}
           <button

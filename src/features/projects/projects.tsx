@@ -107,6 +107,7 @@ export default function Projects(): ReactElement {
       const techStackPaths = projectsRef.current?.querySelectorAll('svg path') as NodeListOf<SVGPathElement> | undefined
       const hoverContainer = projectsRef.current?.querySelector('svg') as SVGSVGElement | null
       const elementsToFade = projectsRef.current?.querySelectorAll<HTMLElement>('.projects-buttons, .filter-mode, .projects-content, .category-section')
+      const projectContainers = projectsRef.current?.querySelectorAll<HTMLElement>('.magnetic-project-container') as NodeListOf<HTMLElement> | undefined
       let currentTween: gsap.core.Tween | null = null
 
       if (!techStackPaths || !elementsToFade) {
@@ -114,6 +115,29 @@ export default function Projects(): ReactElement {
       }
 
       gsap.set(elementsToFade, { opacity: 0, y: 15 })
+
+      // Animate project containers on scroll
+      if (projectContainers) {
+        projectContainers.forEach((container, index) => {
+          gsap.fromTo(
+            container,
+            { opacity: 0, y: 60, scale: 0.95 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.7,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: container,
+                start: 'top 75%',
+                once: true
+              },
+              delay: index * 0.12
+            }
+          )
+        })
+      }
 
       techStackPaths.forEach((path) => {
         const pathLength = path.getTotalLength()

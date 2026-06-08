@@ -1,6 +1,6 @@
 // Imports des images de projets
 import solidityImage from '@/assets/img/project-solidity.png?url'
-import defiImage from '@/assets/img/decentralized-funding.svg?url'
+import fundingImage from '@/assets/img/Screenshot 2026-06-07 040339.png?url'
 import shopifyImage from '@/assets/img/project-shopify.png?url'
 import shoppingCartImage from '@/assets/img/project-shopping-1.jpg?url'
 import BlockchainIcon from '@/assets/icons/svg/blockchain.svg?react'
@@ -16,9 +16,13 @@ import TypeScriptIcon from '@/assets/icons/svg/typescript.svg?react'
 import ReactIcon from '@/assets/icons/svg/react.svg?react'
 import NextJSIcon from '@/assets/icons/svg/nextjs.svg?react'
 import WebIcon from '@/assets/icons/svg/web.svg?react'
+import FigmaIcon from '@/assets/icons/svg/figma.svg?react'
 import NodeJSIcon from '@/assets/icons/svg/nodejs.svg?react'
+import ExpressIcon from '@/assets/icons/svg/express.svg?react'
 import MongoDBIcon from '@/assets/icons/svg/mongodb.svg?react'
 import PostgreSQLIcon from '@/assets/icons/svg/postgre.svg?react'
+import MySQLIcon from '@/assets/icons/svg/mysql-icon.svg?react'
+import SequelizeIcon from '@/assets/icons/svg/sequelize.svg?react'
 import APIIcon from '@/assets/icons/svg/api.svg?react'
 import FullStackIcon from '@/assets/icons/svg/full-stack.svg?react'
 const ecommerceImage = 'https://artdecorglass.co.uk/assets/hero-scene-DaxLSY1x.png'
@@ -43,9 +47,13 @@ export const technos = [
   'React.js',
   'Next.js',
   'Web Development',
+  'Figma',
   'Node.js',
+  'Express.js',
   'MongoDB',
   'PostgreSQL',
+  'MySQL',
+  'Sequelize',
   'API Integration',
   'Full Stack Development'
 ] as const
@@ -66,7 +74,7 @@ export const projects = [
     summary: 'A decentralized crowdfunding dApp using Ethereum smart contracts, enabling campaign creation, contributions, and transparent funding flows through Web3 integration.',
     technos: ['Solidity', 'Smart Contracts', 'Blockchain', 'Ethereum', 'Web3.js', 'React.js', 'API Integration'],
     url: {
-      icon: defiImage,
+      icon: fundingImage,
       github: gitUrlConstructor('Decentralized-Funding'),
       server: null
     }
@@ -163,6 +171,10 @@ export const stack = [
       {
         name: 'Web Development',
         IconComponent: WebIcon
+      },
+      {
+        name: 'Figma',
+        IconComponent: FigmaIcon
       }
     ]
   },
@@ -174,12 +186,24 @@ export const stack = [
         IconComponent: NodeJSIcon
       },
       {
+        name: 'Express.js',
+        IconComponent: ExpressIcon
+      },
+      {
         name: 'MongoDB',
         IconComponent: MongoDBIcon
       },
       {
         name: 'PostgreSQL',
         IconComponent: PostgreSQLIcon
+      },
+      {
+        name: 'MySQL',
+        IconComponent: MySQLIcon
+      },
+      {
+        name: 'Sequelize',
+        IconComponent: SequelizeIcon
       },
       {
         name: 'API Integration',

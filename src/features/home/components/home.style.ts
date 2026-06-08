@@ -46,9 +46,10 @@ export const PCSS = css({
 export const BioAndIonCSS = css({
   margin: '0 auto',
   display: 'flex',
+  alignItems: 'stretch',
   height: 'fit-content',
   gap: '180px',
-  marginBottom: '14vh',
+  marginBottom: '6vh',
   '@media(max-width: 1440px)': {
     gap: '100px'
   },
@@ -182,15 +183,49 @@ export const ContainerPandaCSS = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  height: '100%',
   '@media(max-width: 1440px)': {
     '& svg': {}
   },
   '@media(max-width: 1050px)': {
-    bg: 'red',
     '& svg': {
       display: 'none'
     }
   }
+})
+
+export const HeroImageWrapperCSS = css({
+  width: '400px',
+  maxWidth: '100%',
+  position: 'relative',
+  borderRadius: '28px',
+  overflow: 'hidden',
+  boxShadow: '0 40px 120px rgba(0,0,0,0.35)',
+  border: '1px solid rgba(255,255,255,0.08)',
+  backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))',
+  transition: 'transform 0.4s ease',
+  height: 'auto',
+  '&:hover': {
+    transform: 'translateY(-6px)'
+  },
+  '@media(max-width: 1440px)': {
+    width: '360px'
+  },
+  '@media(max-width: 1050px)': {
+    width: '100%'
+  }
+})
+
+export const HeroImageShineCSS = css({
+  position: 'absolute',
+  top: 0,
+  left: '-35%',
+  width: '70%',
+  height: '100%',
+  bg: 'linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%)',
+  transform: 'skewX(-25deg)',
+  opacity: 0.35,
+  pointerEvents: 'none',
 })
 
 export const ButtonContainer2CSS = css({

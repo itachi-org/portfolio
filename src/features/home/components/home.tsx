@@ -1,7 +1,6 @@
 import { useRef, type ReactElement } from "react";
 
-import HadesDarkIcon from "@/assets/icons/svg/hades-dark.svg?react";
-import HadesLightIcon from "@/assets/icons/svg/hades-light.svg?react";
+import profileImage from "@/assets/img/9.png?url";
 
 import {
   HomeCSS,
@@ -16,6 +15,8 @@ import {
   ScrollDownCSS,
   LinkSocialCSS,
   ContainerPandaCSS,
+  HeroImageWrapperCSS,
+  HeroImageShineCSS,
   CallToActionParentCSS,
 } from "./home.style";
 import "@/core/gsap.config";
@@ -24,7 +25,6 @@ import { ColorLetters } from "@/features/shared/components/color-letters";
 import { Clock } from "@/features/shared/components/clock";
 import { gsap, useGSAP } from "@/core/gsap.config";
 import { useNavDetection } from "@/features/shared/nav/hooks/use-nav-detection";
-import useStore from "@/core/store";
 import { useThemeAttributes } from "@/features/shared/components/hooks/use-theme";
 import type { ModesContent } from "@/data/colors";
 import { useSmoothScroll } from "../../shared/components/hooks/use-smooth-scroll";
@@ -32,7 +32,8 @@ import { useSmoothScroll } from "../../shared/components/hooks/use-smooth-scroll
 export default function Home(): ReactElement {
   useNavDetection("K", "#home");
   const containerRef = useRef<HTMLElement | null>(null);
-  const { theme } = useStore();
+  const heroImageRef = useRef<HTMLImageElement | null>(null);
+  const heroOverlayRef = useRef<HTMLDivElement | null>(null);
   const colorsTheme = useThemeAttributes() as ModesContent;
   const { onSmoothScroll } = useSmoothScroll(gsap);
 
@@ -73,6 +74,37 @@ export default function Home(): ReactElement {
       );
     }
 
+    if (heroImageRef.current) {
+      tl.fromTo(
+        heroImageRef.current,
+        { opacity: 0, y: 40, scale: 0.98, filter: 'blur(8px)' },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          duration: 1.4,
+          ease: 'power3.out',
+          delay: 0.3,
+        },
+        0,
+      );
+    }
+
+    if (heroOverlayRef.current) {
+      gsap.fromTo(
+        heroOverlayRef.current,
+        { xPercent: -100 },
+        {
+          xPercent: 120,
+          duration: 2.4,
+          ease: 'power1.inOut',
+          repeat: -1,
+          repeatDelay: 2,
+        },
+      );
+    }
+
     if (scrollIndicator) {
       gsap.to(scrollIndicator, {
         opacity: 0.4,
@@ -84,10 +116,20 @@ export default function Home(): ReactElement {
       });
     }
 
+    if (heroImageRef.current) {
+      gsap.to(heroImageRef.current, {
+        scale: 1.01,
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    }
+
     return () => {
       tl.kill();
     };
-  }, [theme]);
+  }, [colorsTheme]);
 
   return (
     <section
@@ -135,11 +177,21 @@ export default function Home(): ReactElement {
         </div>
 
         <div className={ContainerPandaCSS}>
-          {theme === "dark" ? (
-            <HadesLightIcon width={400} height={380} />
-          ) : (
-            <HadesDarkIcon width={380} height={380} />
-          )}
+          <div className={HeroImageWrapperCSS}>
+            <img
+              ref={heroImageRef}
+              src={profileImage}
+              alt="Profile"
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'cover',
+                borderRadius: '0',
+                display: 'block'
+              }}
+            />
+            <div ref={heroOverlayRef} className={HeroImageShineCSS} />
+          </div>
         </div>
       </div>
 

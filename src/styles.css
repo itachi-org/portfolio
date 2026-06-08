@@ -238,3 +238,72 @@ select {
 }
 
 @layer reset, base, tokens, recipes, utilities;
+
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 35%),
+    #06070f;
+  color: #c5f0ff;
+  z-index: 10010;
+  pointer-events: none;
+}
+
+.preloader-wrapper {
+  width: min(560px, calc(100% - 48px));
+  max-width: 560px;
+  text-align: center;
+  border: 1px solid rgba(197, 240, 255, 0.18);
+  border-radius: 24px;
+  padding: 2rem 2.25rem;
+  background: rgba(3, 8, 20, 0.92);
+  box-shadow: 0 0 60px rgba(19, 213, 255, 0.12);
+}
+
+.preloader-label {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #7ae7ff;
+  margin-bottom: 0.75rem;
+}
+
+.preloader-percent {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 0 18px rgba(19, 213, 255, 0.28);
+}
+
+.preloader-bar {
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #08f4ff 0%, #8cf6ff 35%, #ffffff 55%, #08f4ff 100%);
+  background-size: 200% 100%;
+  border-radius: 999px;
+  transition: width 0.18s ease;
+  animation: preloaderPulse 1.8s linear infinite;
+}
+
+@keyframes preloaderPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+

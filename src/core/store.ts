@@ -26,7 +26,7 @@ interface TypeStore {
 }
 
 const useStore = create<TypeStore>((set, get) => ({
-  theme: null,
+  theme: 'dark',
   setTheme: theme => set({ theme }),
   projectsFiltered: [...projects],
   isMobileMenuOpen: false,
