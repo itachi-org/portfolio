@@ -91,6 +91,12 @@ export const ProjectNameCSS = css({
   }
 })
 
+export const ProjectLinkCSS = css({
+  display: 'block',
+  textDecoration: 'none',
+  color: 'inherit'
+})
+
 export const ProjectOriginCSS = css({
   display: 'flex',
   justifyContent: 'center',

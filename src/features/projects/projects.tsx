@@ -14,6 +14,7 @@ import {
   ProjectLegendCSS,
   ImgProjectCSS,
   ProjectsCSS,
+  ProjectLinkCSS,
   ProjectOriginCSS,
   ProjectNameCSS,
   ProjectDescriptionCSS,
@@ -269,28 +270,40 @@ export default function Projects(): ReactElement {
 
       <div className={`${ContainerProjectsCSS} projects-content`}>
         {!projectsFilteredIsEmpty ? (
-          projectsFiltered.map((project, i) => (
-            <div key={i} className={ContainerProjectCSS}>
-              <MagneticProject found={true} imageUrl={project.url.icon} gridSize={8} className={ImgProjectCSS} />
-              <div className={ProjectLegendCSS}>
-                <div>
-                  <div className={ProjectNameCSS}>{project.name}</div>
-                  <div className={ProjectDescriptionCSS}>{project.summary}</div>
+          projectsFiltered.map((project, i) => {
+            const imageLink = project.name === 'Ecommerce Site' ? undefined : project.url.server ?? 'https://app.circleci.com/'
+            return (
+              <div key={i} className={ContainerProjectCSS}>
+                {imageLink ? (
+                  <a target='_blank' rel='noreferrer' href={imageLink} className={ProjectLinkCSS}>
+                    <MagneticProject found={true} imageUrl={project.url.icon} gridSize={8} className={ImgProjectCSS} />
+                    <div className={ProjectNameCSS}>{project.name}</div>
+                  </a>
+                ) : (
+                  <>
+                    <MagneticProject found={true} imageUrl={project.url.icon} gridSize={8} className={ImgProjectCSS} />
+                    <div className={ProjectNameCSS}>{project.name}</div>
+                  </>
+                )}
+                <div className={ProjectLegendCSS}>
+                  <div>
+                    <div className={ProjectDescriptionCSS}>{project.summary}</div>
+                  </div>
+                  <div className={ProjectOriginCSS}>
+                    {project.url.server && <a target='_blank' rel='noreferrer' href={project.url.server}>Live View</a>}
+                    <a target='_blank' rel='noreferrer' href={project.url.github}>Github</a>
+                  </div>
                 </div>
-                <div className={ProjectOriginCSS}>
-                  {project.url.server && <a target='_blank' href={project.url.server}>Live View</a>}
-                  <a target='_blank' href={project.url.github}>Github</a>
+                <div className={ContainerProjectBtnsCSS}>
+                  {project.technos.map((t, idx) => (
+                    <button key={idx} className={`${filterButton()} ${techsSelected.includes(t as Technos) ? filterButtonSelected() : ''}`} onClick={() => toggleTech(t as Technos)}>
+                      {t}
+                    </button>
+                  ))}
                 </div>
               </div>
-              <div className={ContainerProjectBtnsCSS}>
-                {project.technos.map((t, idx) => (
-                  <button key={idx} className={`${filterButton()} ${techsSelected.includes(t as Technos) ? filterButtonSelected() : ''}`} onClick={() => toggleTech(t as Technos)}>
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))
+            )
+          })
         ) : (
           <div className={ContainerProjectNotFoundCSS}>
             <div style={{ padding: '60px' }}>

@@ -3,6 +3,7 @@ import solidityImage from '@/assets/img/project-solidity.png?url'
 import fundingImage from '@/assets/img/Screenshot 2026-06-07 040339.png?url'
 import shopifyImage from '@/assets/img/project-shopify.png?url'
 import shoppingCartImage from '@/assets/img/project-shopping-1.jpg?url'
+import airtableImage from '@/assets/img/airtable-app.svg?url'
 import BlockchainIcon from '@/assets/icons/svg/blockchain.svg?react'
 import EthereumIcon from '@/assets/icons/svg/ethereum.svg?react'
 import SolidityIcon from '@/assets/icons/svg/solidity.svg?react'
@@ -76,7 +77,7 @@ export const projects = [
     url: {
       icon: fundingImage,
       github: gitUrlConstructor('Decentralized-Funding'),
-      server: null
+      server: 'https://crowdfundingdaoapp.vercel.app/'
     }
   },
   {
@@ -86,17 +87,17 @@ export const projects = [
     url: {
       icon: shopifyImage,
       github: gitUrlConstructor('shopify-preservation'),
-      server: null
+      server: 'https://pypi.org/project/shopifyapp/'
     }
   },
   {
-    name: 'Python Shopping Cart',
-    summary: 'A Python-powered shopping cart system built with backend logic and API integration to manage products, cart state, and streamlined checkout flows.',
-    technos: ['API Integration', 'Full Stack Development'],
+    name: 'Airtable App',
+    summary: 'A custom Airtable integration app with API-driven record syncing, automation workflows, and a responsive dashboard for data management.',
+    technos: ['React.js', 'JavaScript', 'Node.js', 'API Integration', 'Full Stack Development'],
     url: {
-      icon: shoppingCartImage,
-      github: gitUrlConstructor('python-shopping-cart'),
-      server: null
+      icon: airtableImage,
+      github: gitUrlConstructor('airtable-app'),
+      server: 'https://app.cesko.digital/'
     }
   },
   {
