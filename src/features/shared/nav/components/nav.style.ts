@@ -4,7 +4,9 @@ export const HeaderCSS = css({
   height: 'height.menu',
   borderBottom: 'solid 1px {colors.border.primary}',
   position: 'fixed',
-  width: '100vw',
+  width: '100%',
+  right: '0',
+  boxSizing: 'border-box',
   top: 0,
   left: 0,
   zIndex: '100',
@@ -40,7 +42,7 @@ export const NavLinkCSS = css({
   position: 'relative',
   textDecoration: 'none',
   color: 'text.primary',
-  fontWeight: '500',
+  width: '15px',
   padding: '10px 0',
   transition: 'color 0.3s ease',
 
@@ -180,7 +182,8 @@ export const MobileNavCSS = css({
     display: 'block',
     transition: 'color 0.3s ease',
     textAlign: 'center',
-    width: '200px',
+    width: '100%',
+    maxWidth: '200px',
 
     '&::after': {
       content: '""',

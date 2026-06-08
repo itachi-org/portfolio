@@ -15,7 +15,8 @@ export const SceneCSS = css({
   fontFamily: 'geistMedium',
   minWidth: 'width.main',
 
-  width: 'width.main',
+  width: '100%',
+  maxWidth: 'width.main',
   '@media(max-width: 1440px)': {
     padding: '20px 20px 0px 20px',
     minWidth: 'auto',

@@ -12,9 +12,16 @@ export const H1CSS = css({
   '@media(max-width: 1440px)': {
     fontSize: '50px'
   },
+  '@media(max-width: 1050px)': {
+    fontSize: '44px'
+  },
   '@media(max-width: 750px)': {
-    fontSize: '40px',
-    lineHeight: '60px'
+    fontSize: '36px',
+    lineHeight: '52px'
+  },
+  '@media(max-width: 480px)': {
+    fontSize: '32px',
+    lineHeight: '44px'
   }
 })
 export const H2CSS = css({
@@ -22,7 +29,19 @@ export const H2CSS = css({
   lineHeight: '54px',
   fontFamily: 'athena',
   position: 'relative',
-  padding: '3px 0 3px 0'
+  padding: '3px 0 3px 0',
+  '@media(max-width: 1050px)': {
+    fontSize: '18px',
+    lineHeight: '44px'
+  },
+  '@media(max-width: 750px)': {
+    fontSize: '16px',
+    lineHeight: '36px'
+  },
+  '@media(max-width: 480px)': {
+    fontSize: '15px',
+    lineHeight: '32px'
+  }
 })
 
 export const CategoryCSS = css({
@@ -31,7 +50,7 @@ export const CategoryCSS = css({
 })
 
 export const PCSS = css({
-  maxWidth: '500',
+  maxWidth: '500px',
   fontFamily: 'geistMedium',
   fontSize: '15px',
   color: 'text.paragraph',
@@ -40,7 +59,15 @@ export const PCSS = css({
   letterSpacing: '0.2px',
   margin: '0',
   textRendering: 'optimizeLegibility',
-  '@media(max-width: 750px)': {}
+  '@media(max-width: 1050px)': {
+    maxWidth: '100%'
+  },
+  '@media(max-width: 750px)': {
+    fontSize: '14px'
+  },
+  '@media(max-width: 480px)': {
+    fontSize: '13px'
+  }
 })
 
 export const BioAndIonCSS = css({
@@ -54,19 +81,24 @@ export const BioAndIonCSS = css({
     gap: '100px'
   },
   '@media(max-width: 1050px)': {
-    gap: '0px'
+    flexDirection: 'column',
+    gap: '30px',
+    alignItems: 'center'
+  },
+  '@media(max-width: 750px)': {
+    gap: '24px'
   }
 })
 
 export const SocialCSS = css({
   display: 'flex',
   flexFlow: 'wrap',
-  gap: '113',
+  gap: '113px',
   '@media(max-width: 1050px)': {
-    gap: '50'
+    gap: '50px'
   },
   '@media(max-width: 750px)': {
-    gap: '20'
+    gap: '20px'
   }
 })
 
@@ -118,10 +150,12 @@ export const CallToActionParentCSS = css({
   position: 'absolute',
   bottom: '-15vh',
   left: '25%',
-  display: 'flex',
+  display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '220px',
+  padding: '0 22px',
+  minWidth: '140px',
+  maxWidth: '260px',
   height: '50px',
   
   border: '1px solid',
@@ -147,7 +181,7 @@ export const CallToActionParentCSS = css({
     width: '100%',
     height: '100%',
     bg: 'text.primary',
-    transform: 'translateY(100%)', 
+    transform: 'translateY(120%)', 
     zIndex: -1,
     transition: 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)',
   },
@@ -159,19 +193,42 @@ export const CallToActionParentCSS = css({
     },
   },
 
+  // Small centered underline to match original design
+  _after: {
+    content: '""',
+    position: 'absolute',
+    bottom: '-6px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '48px',
+    height: '3px',
+    bg: 'linear-gradient(90deg, #29d0ff, #b7ff94)',
+    borderRadius: '2px',
+    opacity: 0.9,
+    transition: 'all 0.3s ease'
+  },
+
   '@media(max-width: 1440px)': {
     bottom: '-12vh',
     fontSize: '14px',
     height: '45px',
-    width: '200px',
+    minWidth: '160px',
+    maxWidth: '220px',
   },
   '@media(max-width: 1050px)': {
-    bottom: '-10vh',
-    height: '40px',
-    width: '150px',
+    position: 'relative',
+    bottom: '0',
+    left: '0',
+    marginTop: '30px',
+    height: '44px',
+    minWidth: '140px',
+    maxWidth: '200px',
   },
   '@media(max-width: 750px)': {
-    bottom: '-10vh',
+    minWidth: '160px',
+    maxWidth: '220px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 })
 
@@ -184,10 +241,13 @@ export const ContainerPandaCSS = css({
   flexDirection: 'column',
   alignItems: 'center',
   height: '100%',
+  width: '100%',
+  maxWidth: '420px',
   '@media(max-width: 1440px)': {
     '& svg': {}
   },
   '@media(max-width: 1050px)': {
+    maxWidth: '100%',
     '& svg': {
       display: 'none'
     }
@@ -212,6 +272,9 @@ export const HeroImageWrapperCSS = css({
     width: '360px'
   },
   '@media(max-width: 1050px)': {
+    width: '100%'
+  },
+  '@media(max-width: 750px)': {
     width: '100%'
   }
 })

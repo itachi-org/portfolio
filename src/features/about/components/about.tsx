@@ -86,17 +86,17 @@ const aboutItems = [
   {
     title: 'Family Support',
     subtitle: 'A personal foundation behind professional strength',
-    caption: 'A family moment that underscores the long-term support behind every achievement.',
+    caption: 'A real family moment with the people who support me through every challenge and milestone.',
     description:
-      'The support of loved ones gives me perspective, stability, and the emotional bandwidth to take on ambitious work. That foundation makes it possible to sustain commitment, accountability, and resilience through every project.',
+      'This is my family — the support system that gives me perspective, stability, and the emotional bandwidth to take on ambitious work. Their encouragement makes it possible to sustain commitment, accountability, and resilience through every project.',
     image: about6
   },
   {
     title: 'Cultural Roots',
     subtitle: 'Heritage, discipline, and thoughtful craftsmanship',
-    caption: 'A cultural moment that influences my respect for quality, detail, and consistency.',
+    caption: 'A family photo from my heritage that reminds me how craft, patience, and quality were passed down through generations.',
     description:
-      'My heritage informs my approach to craftsmanship, patience, and quality. I take pride in building software that is precise, dependable, and considerate of both users and maintainers.',
+      'This image is of my family and the cultural values that shape how I work. It reflects the respect for detail, discipline, and consistency I carry into software craftsmanship, ensuring what I build is precise, dependable, and thoughtful for both users and maintainers.',
     image: about7
   },
   {

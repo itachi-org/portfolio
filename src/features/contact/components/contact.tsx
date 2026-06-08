@@ -68,7 +68,7 @@ export default function Contact () {
       className={`${SectionCSS} ${SpacingCSS.sectionSeparator} ${GridCSS}`}
       id='contact'
     >
-      <span style={{ textAlign: 'end' }}>04. CONTACT</span>
+      <span style={{ textAlign: 'end' }}>05. CONTACT</span>
       <div className={ContactContentCSS}>
         <div ref={sloganRef} className={SloganCSS}>LET'S BRING YOUR VISION TO LIFE</div>
 
@@ -111,8 +111,8 @@ export default function Contact () {
         </svg>
       </div>
       <footer ref={footerRef} className={FooterCSS}>
-        <div>© 2025 khayyer Mohamed. Tous droits réservés.</div>
-        <div>business UXUI design, Web development</div>
+        <div>© 2026 Ryota Oshima. Building Secure Blockchain & Modern Web Applications.</div>
+        <div>Building Secure Blockchain & Modern Web Applications.</div>
       </footer>
       <div ref={fluxRef} className={FluxCSS}></div>
     </section>
