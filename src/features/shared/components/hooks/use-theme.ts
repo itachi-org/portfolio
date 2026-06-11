@@ -14,3 +14,4 @@ export const useThemeAttributes = () => {
     return themeAttributes['dark']
   }, [theme])
 }
+

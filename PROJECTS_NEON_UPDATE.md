@@ -436,3 +436,4 @@ Add these keyframe animations:
 ✅ **Responsive** - Center line and balls hidden on mobile
 ✅ **2x2 Grid Layout** - Optimized card sizes for better layout
 
+

@@ -344,3 +344,4 @@ export const MaskCSS = css({
   overflow: 'hidden',
   fontWeight: 'bold'
 })
+

@@ -25,3 +25,4 @@ export type DarkMode = typeof darkMode
 export type ColorModes = 'dark' | 'light'
 export type ModesContent = LightMode | DarkMode
 export type ThemeAtrributes = Record<ColorModes, ModesContent>
+

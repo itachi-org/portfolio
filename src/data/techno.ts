@@ -27,7 +27,7 @@ import APIIcon from '@/assets/icons/svg/api.svg?react'
 import FullStackIcon from '@/assets/icons/svg/full-stack.svg?react'
 const ecommerceImage = 'https://artdecorglass.co.uk/assets/hero-scene-DaxLSY1x.png'
 
-const GITHUB_BASE_URL = 'https://github.com/Oshima-921/'
+const GITHUB_BASE_URL = 'https://github.com/oshima921/'
 
 const gitUrlConstructor = (projectName: string): string => {
   return `${GITHUB_BASE_URL}${projectName}`
@@ -216,3 +216,4 @@ export const stack = [
     ]
   }
 ]
+

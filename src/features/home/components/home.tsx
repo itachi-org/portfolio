@@ -211,7 +211,7 @@ export default function Home(): ReactElement {
               GMAIL
             </a>
             <a
-              href="https://github.com/Oshima-921"
+              href="https://github.com/oshima921"
               target="_blank"
               rel="noopener noreferrer"
               className={LinkSocialCSS} // Ajout de la classe ici
@@ -241,3 +241,4 @@ export default function Home(): ReactElement {
     </section>
   );
 }
+

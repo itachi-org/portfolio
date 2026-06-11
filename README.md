@@ -8,3 +8,4 @@ Bienvenue sur la nouvelle version de mon portfolio ! J'avais simplement envie d'
 - **Framework** : React 19
 - **Langage** : TypeScript
 - **Autres outils** : PandaCSS, Zustand, TanStack Query, Vitest
+

@@ -23,3 +23,4 @@ export default function DetectLinkNameByHref (linkName: LinksProps): void {
     }
   }
 }
+

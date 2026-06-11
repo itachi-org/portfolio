@@ -144,3 +144,4 @@ export const ArrowUPCSS = css({
   bottom: 40, 
   fill:'bg.classic'
 })
+

@@ -24,3 +24,4 @@ export interface ProjectsType {
 }
 
 export type ProjectsArray = ProjectsType[]
+

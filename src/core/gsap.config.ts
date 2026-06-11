@@ -8,3 +8,4 @@ import { SplitText } from 'gsap/SplitText'
 gsap.registerPlugin(CSSPlugin, useGSAP, ScrollTrigger, ScrollToPlugin, SplitText)
 
 export { gsap, useGSAP, ScrollTrigger }
+
